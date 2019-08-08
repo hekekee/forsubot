@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const config = require('./config.json'); // config.json in this case contains the client token
+const { prefix, token } = require('./config.json'); // config.json in this case contains the client token
 const client = new Discord.Client();
 
 client.on('ready', () => {
@@ -14,8 +14,10 @@ client.on('message', msg => {
 
 // Listen to messages
 client.on('message', message => {
-	console.log(message.content);
+	if (message.author.id === '231110335245975552') {
+		message.react('🍆');
+	}
 });
 
 // You should add your own token here :)
-client.login(config.token);
+client.login(token);
